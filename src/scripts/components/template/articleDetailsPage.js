@@ -1,4 +1,4 @@
-const CheckPage = {
+const ArticleDetailsPage = {
   async render() {
     return `
         <section>
@@ -9,8 +9,8 @@ const CheckPage = {
 
   async afterRender() {
     
-    console.log("Check Page rendered");
+    console.log("Article Details Page rendered");
   },
 };
 
-export default CheckPage;
+export default ArticleDetailsPage;
