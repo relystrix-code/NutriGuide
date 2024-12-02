@@ -1,34 +1,23 @@
 const { merge } = require("webpack-merge");
-const common = require("./webpack.common.js");
-const webpack = require("webpack");
 const path = require("path");
+const common = require("./webpack.common");
 
 module.exports = merge(common, {
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    port: 3000,
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
     open: true,
+    compress: true,
+    port: 8080,
     hot: true,
-    historyApiFallback: true,
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: "babel-loader",
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
       },
-      {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-    ],
-  },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
-  optimization: {
-    runtimeChunk: "single",
+    },
   },
 });

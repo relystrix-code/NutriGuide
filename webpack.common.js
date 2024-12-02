@@ -1,46 +1,72 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./src/scripts/index.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "js/[name].[contenthash].js",
-    clean: true,
+  entry: {
+    app: path.resolve(__dirname, "src/scripts/index.js"),
   },
-  resolve: {
-    extensions: [".js", ".json", ".scss"],
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: "babel-loader",
+        use: {
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+          {
+            loader: "sass-loader",
+          },
+        ],
       },
       {
-        test: /\.html$/,
-        use: "html-loader",
+        test: /\.(png|jpe?g|gif|svg|ico)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[name][ext][query]",
+        },
+      },
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|mp4|webm|mp3|wav|flac|aac)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "assets/[name][ext][query]",
+        },
       },
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./src/template/index.html",
       filename: "index.html",
+      template: path.resolve(__dirname, "src/template/index.html"),
     }),
-    new MiniCssExtractPlugin({
-      filename: "css/[name].[contenthash].css",
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src/public/"),
+          to: path.resolve(__dirname, "dist/"),
+        },
+      ],
     }),
   ],
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-    },
+  resolve: {
+    extensions: [".js", ".json", ".scss"],
   },
 };
