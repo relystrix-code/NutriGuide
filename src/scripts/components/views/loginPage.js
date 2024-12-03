@@ -5,7 +5,7 @@ const LoginPage = {
         <section class="container-login">
           <div class="left-section">
             <h1>Selamat Datang<br>di <span>NutriGuide!</span></h1>
-            <img src="./images/signupLogin.png" alt="Healthy Eating Illustration">
+            <img src="./images/signupLogin.png" alt="Login Image">
           </div>
           <div class="right-section">
             <h2>Masuk</h2>
