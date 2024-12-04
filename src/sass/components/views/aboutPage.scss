@@ -1,4 +1,3 @@
-/* Hero Section */
 .hero-about {
     position: relative;
     min-height: 90vh;
@@ -37,7 +36,6 @@
     font-size: 1.7rem;
 }
 
-/* Hero Image */
 .hero-about img {
     position: absolute;
     top: 0;
@@ -48,7 +46,6 @@
     z-index: -1;
 }
 
-/* About Us and Team Section */
 .about-content {
     margin-bottom: 20px;
     text-align: justify;
@@ -121,21 +118,28 @@
     margin-bottom: 15px;
 }
 
+.social-links {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px;
+    margin-top: 10px; 
+}
+
 .social-links a {
     text-decoration: none;
     color: #000000;
-    margin: 0 12px;
 }
 
 .social-links a i {
-    font-size: 1.5rem;
+    font-size: 2rem;
     transition: transform 0.3s ease;
 }
 
 .social-links a:hover i {
     transform: scale(1.2);
-    color: #000000;
 }
+
 
 @media screen and (max-width: 768px) {
     .about-content {
