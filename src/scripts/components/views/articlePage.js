@@ -1,8 +1,8 @@
 const ArticlePage = {
   async render() {
     return `
-      <section class="hero-about">
-        <div class="hero-content-about">
+      <section class="hero-article">
+        <div class="hero-content-article">
           <h1>NutriGuide</h1>
           <p>Temukan artikel pilihan dan jadikan hari Anda lebih bermakna!</p>
           <img src="./images/articlePageHero.jpg" alt="Hero Image"> 
