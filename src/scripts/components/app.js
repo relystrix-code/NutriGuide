@@ -3,10 +3,9 @@ import UrlParser from "../routes/urlParser";
 import routes from "../routes/routes";
 
 class App {
-  constructor({ button, drawer, overlay, content }) {
+  constructor({ button, drawer, content }) {
     this._button = button;
     this._drawer = drawer;
-    this._overlay = overlay;
     this._content = content;
 
     this._initializeAppShell();
@@ -16,7 +15,6 @@ class App {
     DrawerInitiator.init({
       button: this._button,
       drawer: this._drawer,
-      overlay: this._overlay,
       content: this._content,
     });
   }
@@ -32,5 +30,27 @@ class App {
     }
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const profileBtn = document.getElementById("profile-btn");
+  const profileContainer = document.querySelector(".app-bar__profile");
+  const logoutLink = document.querySelector("#profile-dropdown a");
+
+  profileBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    profileContainer.classList.toggle("active");
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!profileContainer.contains(event.target)) {
+      profileContainer.classList.remove("active");
+    }
+  });
+
+  logoutLink.addEventListener("click", () => {
+    profileContainer.classList.remove("active");
+  });
+
+});
 
 export default App;
