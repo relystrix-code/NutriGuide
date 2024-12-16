@@ -4,32 +4,32 @@ const {
   getArticleByIdHandler,
   updateArticleByIdHandler,
   deleteArticleByIdHandler,
-} = require("../controllers");
+} = require('../controllers');
 
 const routes = [
   {
-    method: "POST",
-    path: "/articles",
+    method: 'POST',
+    path: '/articles',
     handler: addArticleHandler,
   },
   {
-    method: "GET",
-    path: "/articles",
+    method: 'GET',
+    path: '/articles',
     handler: getAllArticlesHandler,
   },
   {
-    method: "GET",
-    path: "/articles/{articleId}",
+    method: 'GET',
+    path: '/articles/{articleId}',
     handler: getArticleByIdHandler,
   },
   {
-    method: "PUT",
-    path: "/articles/{articleId}",
+    method: 'PUT',
+    path: '/articles/{articleId}',
     handler: updateArticleByIdHandler,
   },
   {
-    method: "DELETE",
-    path: "/articles/{articleId}",
+    method: 'DELETE',
+    path: '/articles/{articleId}',
     handler: deleteArticleByIdHandler,
   },
 ];

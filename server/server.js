@@ -1,15 +1,15 @@
-const Hapi = require("@hapi/hapi");
-const Inert = require("@hapi/inert");
-const path = require("path");
-const routes = require("./src/routes");
+const Hapi = require('@hapi/hapi');
+const Inert = require('@hapi/inert');
+const path = require('path');
+const routes = require('./src/routes');
 
 const init = async () => {
   const server = Hapi.server({
     port: process.env.PORT || 9000,
-    host: process.env.HOST || "localhost",
+    host: process.env.HOST || 'localhost',
     routes: {
       cors: {
-        origin: ["*"],
+        origin: ['*'],
       },
     },
   });
@@ -17,11 +17,11 @@ const init = async () => {
   await server.register(Inert);
 
   server.route({
-    method: "GET",
-    path: "/images/{file*}",
+    method: 'GET',
+    path: '/images/{file*}',
     handler: {
       directory: {
-        path: path.join(__dirname, "public/images"),
+        path: path.join(__dirname, 'public/images'),
         redirectToSlash: true,
         index: false,
       },
@@ -34,13 +34,13 @@ const init = async () => {
     await server.start();
     console.log(`Server running on ${server.info.uri}`);
   } catch (err) {
-    console.error("Failed to start server:", err.message);
+    console.error('Failed to start server:', err.message);
     process.exit(1);
   }
 };
 
-process.on("unhandledRejection", (err) => {
-  console.error("Unhandled Rejection:", err);
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled Rejection:', err);
   process.exit(1);
 });
 

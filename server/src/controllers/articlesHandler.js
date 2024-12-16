@@ -1,8 +1,8 @@
-const Joi = require("joi");
-const generateId = require("../utils/generateId");
-const { readData, writeData } = require("../utils/dataStore");
+const Joi = require('joi');
+const generateId = require('../utils/generateId');
+const { readData, writeData } = require('../utils/dataStore');
 
-let articlesCache = readData();
+const articlesCache = readData();
 
 const articleSchema = Joi.object({
   category: Joi.string().required(),
@@ -26,7 +26,7 @@ const addArticleHandler = (request, h) => {
   if (error) {
     return h
       .response({
-        status: "fail",
+        status: 'fail',
         message: `Validation error: ${error.message}`,
       })
       .code(400);
@@ -40,8 +40,8 @@ const addArticleHandler = (request, h) => {
 
   return h
     .response({
-      status: "success",
-      message: "Article successfully added.",
+      status: 'success',
+      message: 'Article successfully added.',
       data: {
         articleId: id,
       },
@@ -68,7 +68,7 @@ const getAllArticlesHandler = (request, h) => {
 
   return h
     .response({
-      status: "success",
+      status: 'success',
       data: {
         articles: filteredArticles.map(
           ({ id, category, date, title, picture }) => ({
@@ -92,15 +92,15 @@ const getArticleByIdHandler = (request, h) => {
   if (!article) {
     return h
       .response({
-        status: "fail",
-        message: "Article not found.",
+        status: 'fail',
+        message: 'Article not found.',
       })
       .code(404);
   }
 
   return h
     .response({
-      status: "success",
+      status: 'success',
       data: {
         article,
       },
@@ -115,7 +115,7 @@ const updateArticleByIdHandler = (request, h) => {
   if (error) {
     return h
       .response({
-        status: "fail",
+        status: 'fail',
         message: `Validation error: ${error.message}`,
       })
       .code(400);
@@ -126,8 +126,8 @@ const updateArticleByIdHandler = (request, h) => {
   if (index === -1) {
     return h
       .response({
-        status: "fail",
-        message: "Failed to update article. ID not found.",
+        status: 'fail',
+        message: 'Failed to update article. ID not found.',
       })
       .code(404);
   }
@@ -141,8 +141,8 @@ const updateArticleByIdHandler = (request, h) => {
 
   return h
     .response({
-      status: "success",
-      message: "Article successfully updated.",
+      status: 'success',
+      message: 'Article successfully updated.',
     })
     .code(200);
 };
@@ -155,8 +155,8 @@ const deleteArticleByIdHandler = (request, h) => {
   if (index === -1) {
     return h
       .response({
-        status: "fail",
-        message: "Failed to delete article. ID not found.",
+        status: 'fail',
+        message: 'Failed to delete article. ID not found.',
       })
       .code(404);
   }
@@ -166,8 +166,8 @@ const deleteArticleByIdHandler = (request, h) => {
 
   return h
     .response({
-      status: "success",
-      message: "Article successfully deleted.",
+      status: 'success',
+      message: 'Article successfully deleted.',
     })
     .code(200);
 };

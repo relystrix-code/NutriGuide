@@ -1,4 +1,4 @@
-const articlesRoutes = require("./articlesRoutes");
+const articlesRoutes = require('./articlesRoutes');
 
 const routes = [...articlesRoutes];
 

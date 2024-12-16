@@ -4,7 +4,7 @@ const {
   getArticleByIdHandler,
   updateArticleByIdHandler,
   deleteArticleByIdHandler,
-} = require("./articlesHandler");
+} = require('./articlesHandler');
 
 module.exports = {
   addArticleHandler,
