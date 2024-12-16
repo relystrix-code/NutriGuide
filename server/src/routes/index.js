@@ -1,3 +1,5 @@
 const articlesRoutes = require("./articlesRoutes");
 
-module.exports = [...articlesRoutes];
+const routes = [...articlesRoutes];
+
+module.exports = routes;

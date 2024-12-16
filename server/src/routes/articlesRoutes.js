@@ -4,7 +4,7 @@ const {
   getArticleByIdHandler,
   updateArticleByIdHandler,
   deleteArticleByIdHandler,
-} = require("../controller");
+} = require("../controllers");
 
 const routes = [
   {

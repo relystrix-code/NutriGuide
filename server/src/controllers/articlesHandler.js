@@ -1,51 +1,40 @@
+const Joi = require("joi");
 const generateId = require("../utils/generateId");
 const { readData, writeData } = require("../utils/dataStore");
 
-const addArticleHandler = (request, h) => {
-  const {
-    category,
-    date,
-    title,
-    picture,
-    headerText,
-    sectionSubtitle1,
-    sectionText1,
-    sectionSubtitle2,
-    sectionText2,
-    sectionSubtitle3,
-    sectionText3,
-    footerText,
-  } = request.payload;
+let articlesCache = readData();
 
-  if (!title || !category || !date) {
+const articleSchema = Joi.object({
+  category: Joi.string().required(),
+  date: Joi.date().iso().required(),
+  title: Joi.string().required(),
+  picture: Joi.string().uri().optional(),
+  headerText: Joi.string().optional(),
+  sectionSubtitle1: Joi.string().optional(),
+  sectionText1: Joi.string().optional(),
+  sectionSubtitle2: Joi.string().optional(),
+  sectionText2: Joi.string().optional(),
+  sectionSubtitle3: Joi.string().optional(),
+  sectionText3: Joi.string().optional(),
+  footerText: Joi.string().optional(),
+});
+
+const addArticleHandler = (request, h) => {
+  const { error, value } = articleSchema.validate(request.payload);
+  if (error) {
     return h
       .response({
         status: "fail",
-        message: "Failed to add article. Please provide all required fields.",
+        message: `Validation error: ${error.message}`,
       })
       .code(400);
   }
 
   const id = generateId();
-  const newArticle = {
-    id,
-    category,
-    date,
-    title,
-    picture,
-    headerText,
-    sectionSubtitle1,
-    sectionText1,
-    sectionSubtitle2,
-    sectionText2,
-    sectionSubtitle3,
-    sectionText3,
-    footerText,
-  };
+  const newArticle = { id, ...value };
 
-  const articles = readData();
-  articles.push(newArticle);
-  writeData(articles);
+  articlesCache.push(newArticle);
+  writeData(articlesCache);
 
   return h
     .response({
@@ -59,9 +48,21 @@ const addArticleHandler = (request, h) => {
 };
 
 const getAllArticlesHandler = (request, h) => {
-  const { category, title } = request.query;
+  const { category, title, page = 1, limit = 10 } = request.query;
 
-  let filteredArticles = readData();
+  const pageNum = parseInt(page, 10);
+  const limitNum = parseInt(limit, 10);
+
+  if (isNaN(pageNum) || isNaN(limitNum) || pageNum <= 0 || limitNum <= 0) {
+    return h
+      .response({
+        status: "fail",
+        message: "Invalid query parameters for page or limit.",
+      })
+      .code(400);
+  }
+
+  let filteredArticles = articlesCache;
 
   if (category) {
     filteredArticles = filteredArticles.filter(
@@ -75,16 +76,22 @@ const getAllArticlesHandler = (request, h) => {
     );
   }
 
+  const start = (pageNum - 1) * limitNum;
+  const paginatedArticles = filteredArticles.slice(start, start + limitNum);
+
   return h
     .response({
       status: "success",
       data: {
-        articles: filteredArticles.map(({ id, title, category, date }) => ({
+        articles: paginatedArticles.map(({ id, title, category, date }) => ({
           id,
           title,
           category,
           date,
         })),
+        total: filteredArticles.length,
+        page: pageNum,
+        limit: limitNum,
       },
     })
     .code(200);
@@ -92,7 +99,8 @@ const getAllArticlesHandler = (request, h) => {
 
 const getArticleByIdHandler = (request, h) => {
   const { articleId } = request.params;
-  const article = readData().find((a) => a.id === articleId);
+
+  const article = articlesCache.find((a) => a.id === articleId);
 
   if (!article) {
     return h
@@ -115,23 +123,18 @@ const getArticleByIdHandler = (request, h) => {
 
 const updateArticleByIdHandler = (request, h) => {
   const { articleId } = request.params;
-  const {
-    category,
-    date,
-    title,
-    picture,
-    headerText,
-    sectionSubtitle1,
-    sectionText1,
-    sectionSubtitle2,
-    sectionText2,
-    sectionSubtitle3,
-    sectionText3,
-    footerText,
-  } = request.payload;
+  const { error, value } = articleSchema.validate(request.payload);
 
-  const articles = readData();
-  const index = articles.findIndex((a) => a.id === articleId);
+  if (error) {
+    return h
+      .response({
+        status: "fail",
+        message: `Validation error: ${error.message}`,
+      })
+      .code(400);
+  }
+
+  const index = articlesCache.findIndex((a) => a.id === articleId);
 
   if (index === -1) {
     return h
@@ -142,23 +145,12 @@ const updateArticleByIdHandler = (request, h) => {
       .code(404);
   }
 
-  articles[index] = {
-    ...articles[index],
-    category,
-    date,
-    title,
-    picture,
-    headerText,
-    sectionSubtitle1,
-    sectionText1,
-    sectionSubtitle2,
-    sectionText2,
-    sectionSubtitle3,
-    sectionText3,
-    footerText,
+  articlesCache[index] = {
+    ...articlesCache[index],
+    ...value,
   };
 
-  writeData(articles);
+  writeData(articlesCache);
 
   return h
     .response({
@@ -170,9 +162,8 @@ const updateArticleByIdHandler = (request, h) => {
 
 const deleteArticleByIdHandler = (request, h) => {
   const { articleId } = request.params;
-  const articles = readData();
 
-  const index = articles.findIndex((a) => a.id === articleId);
+  const index = articlesCache.findIndex((a) => a.id === articleId);
 
   if (index === -1) {
     return h
@@ -183,8 +174,8 @@ const deleteArticleByIdHandler = (request, h) => {
       .code(404);
   }
 
-  articles.splice(index, 1);
-  writeData(articles);
+  articlesCache.splice(index, 1);
+  writeData(articlesCache);
 
   return h
     .response({
