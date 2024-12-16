@@ -1,4 +1,6 @@
 const Hapi = require("@hapi/hapi");
+const Inert = require("@hapi/inert");
+const path = require("path");
 const routes = require("./src/routes");
 
 const init = async () => {
@@ -12,8 +14,23 @@ const init = async () => {
     },
   });
 
+  await server.register(Inert);
+
+  server.route({
+    method: "GET",
+    path: "/images/{file*}",
+    handler: {
+      directory: {
+        path: path.join(__dirname, "public/images"),
+        redirectToSlash: true,
+        index: false,
+      },
+    },
+  });
+
   try {
     server.route(routes);
+
     await server.start();
     console.log(`Server running on ${server.info.uri}`);
   } catch (err) {

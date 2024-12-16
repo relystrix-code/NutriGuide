@@ -1,5 +1,5 @@
-const fs = require("fs");
 const path = require("path");
+const fs = require("fs");
 
 const dataFilePath = path.resolve(
   process.env.DATA_FILE_PATH ||

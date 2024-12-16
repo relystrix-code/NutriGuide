@@ -6,17 +6,19 @@ let articlesCache = readData();
 
 const articleSchema = Joi.object({
   category: Joi.string().required(),
-  date: Joi.date().iso().required(),
+  date: Joi.string().required(),
   title: Joi.string().required(),
-  picture: Joi.string().uri().optional(),
-  headerText: Joi.string().optional(),
-  sectionSubtitle1: Joi.string().optional(),
-  sectionText1: Joi.string().optional(),
-  sectionSubtitle2: Joi.string().optional(),
-  sectionText2: Joi.string().optional(),
-  sectionSubtitle3: Joi.string().optional(),
-  sectionText3: Joi.string().optional(),
-  footerText: Joi.string().optional(),
+  picture: Joi.string()
+    .regex(/^(\/images\/[a-zA-Z0-9-_.]+)$/)
+    .required(),
+  headerText: Joi.string(),
+  sectionSubtitle1: Joi.string(),
+  sectionText1: Joi.string(),
+  sectionSubtitle2: Joi.string(),
+  sectionText2: Joi.string(),
+  sectionSubtitle3: Joi.string(),
+  sectionText3: Joi.string(),
+  footerText: Joi.string(),
 });
 
 const addArticleHandler = (request, h) => {
@@ -48,19 +50,7 @@ const addArticleHandler = (request, h) => {
 };
 
 const getAllArticlesHandler = (request, h) => {
-  const { category, title, page = 1, limit = 10 } = request.query;
-
-  const pageNum = parseInt(page, 10);
-  const limitNum = parseInt(limit, 10);
-
-  if (isNaN(pageNum) || isNaN(limitNum) || pageNum <= 0 || limitNum <= 0) {
-    return h
-      .response({
-        status: "fail",
-        message: "Invalid query parameters for page or limit.",
-      })
-      .code(400);
-  }
+  const { category, title } = request.query;
 
   let filteredArticles = articlesCache;
 
@@ -76,22 +66,19 @@ const getAllArticlesHandler = (request, h) => {
     );
   }
 
-  const start = (pageNum - 1) * limitNum;
-  const paginatedArticles = filteredArticles.slice(start, start + limitNum);
-
   return h
     .response({
       status: "success",
       data: {
-        articles: paginatedArticles.map(({ id, title, category, date }) => ({
-          id,
-          title,
-          category,
-          date,
-        })),
-        total: filteredArticles.length,
-        page: pageNum,
-        limit: limitNum,
+        articles: filteredArticles.map(
+          ({ id, category, date, title, picture }) => ({
+            id,
+            category,
+            date,
+            title,
+            picture,
+          })
+        ),
       },
     })
     .code(200);
