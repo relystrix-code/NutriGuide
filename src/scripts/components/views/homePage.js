@@ -30,23 +30,23 @@ const HomePage = {
   },
 
   async afterRender() {
-    console.log("Home Page rendered");
-  
+    console.log('Home Page rendered');
+
     const header = document.getElementById('main-header');
     const footer = document.getElementById('main-footer');
-  
+
     if (header) header.style.display = '';
     if (footer) footer.style.display = '';
-  
+
     const checkNutritionButton = document.getElementById('check-nutrition-btn');
     if (checkNutritionButton) {
       checkNutritionButton.addEventListener('click', () => {
-        window.location.hash = '#/check'; 
+        window.location.hash = '#/check';
       });
     }
 
     try {
-      
+
       const response = await fetch('./database/article.json');
       const data = await response.json();
       const articles = data.article.slice(0, 5);;
@@ -67,7 +67,7 @@ const HomePage = {
       console.error('Gagal memuat artikel:', error);
     }
   }
-  
+
 };
 
 export default HomePage;

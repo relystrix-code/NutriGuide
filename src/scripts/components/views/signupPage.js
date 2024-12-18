@@ -44,14 +44,14 @@ const SignupPage = {
 
     const signupForm = document.getElementById('signup-form');
     signupForm.addEventListener('submit', (event) => {
-      event.preventDefault(); 
-      window.location.hash = '/home'; 
+      event.preventDefault();
+      window.location.hash = '/home';
     });
 
     const goToLogin = document.getElementById('go-to-login');
     goToLogin.addEventListener('click', (event) => {
-      event.preventDefault(); 
-      window.location.hash = '/login'; 
+      event.preventDefault();
+      window.location.hash = '/login';
     });
   },
 };

@@ -1,6 +1,6 @@
 const AboutPage = {
-    async render() {
-      return `
+  async render() {
+    return `
         <section class="hero-about">
           <div class="hero-content-about">
             <h1>NutriGuide</h1>
@@ -65,12 +65,12 @@ const AboutPage = {
           </div>
         </section>
       `;
-    },
-  
-    async afterRender() {
-      console.log("About Page rendered");
-    },
-  };
-  
-  export default AboutPage;
-  
+  },
+
+  async afterRender() {
+    console.log('About Page rendered');
+  },
+};
+
+export default AboutPage;
+

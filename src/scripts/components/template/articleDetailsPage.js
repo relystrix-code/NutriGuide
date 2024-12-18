@@ -8,8 +8,8 @@ const ArticleDetailsPage = {
   },
 
   async afterRender() {
-    
-    console.log("Article Details Page rendered");
+
+    console.log('Article Details Page rendered');
   },
 };
 

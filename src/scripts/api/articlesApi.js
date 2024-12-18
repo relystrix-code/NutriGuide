@@ -1,4 +1,4 @@
-import CONFIG from "./configuration";
+import CONFIG from './configuration';
 
 const articlesApi = {
   AllArticles: `${CONFIG.BASE_URL}/articles`,

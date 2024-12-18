@@ -1,4 +1,4 @@
-import articlesApi from "./articlesApi";
+import articlesApi from './articlesApi';
 
 class Endpoints {
   static async AllArticles() {

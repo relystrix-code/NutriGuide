@@ -1,12 +1,12 @@
 const config = {
-  testMatch: ["**/test/**/*.test.[jt]s?(x)"],
+  testMatch: ['**/test/**/*.test.[jt]s?(x)'],
 
-  setupFiles: ["fake-indexeddb/auto"],
+  setupFiles: ['fake-indexeddb/auto'],
 
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
 
   transform: {
-    "^.+\\.(js|ts)$": "babel-jest",
+    '^.+\\.(js|ts)$': 'babel-jest',
   },
 };
 

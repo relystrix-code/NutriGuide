@@ -97,7 +97,7 @@ const ConsultationPage = {
         }
       });
     });
-    console.log("Consultation Page rendered");
+    console.log('Consultation Page rendered');
   },
 };
 

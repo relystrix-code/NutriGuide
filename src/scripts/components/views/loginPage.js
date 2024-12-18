@@ -24,39 +24,39 @@ const LoginPage = {
       </div>
     `;
   },
-  
+
 
   async afterRender() {
-    console.log("Login Page rendered");
+    console.log('Login Page rendered');
 
-  const header = document.getElementById('main-header');
-  const footer = document.getElementById('main-footer');
+    const header = document.getElementById('main-header');
+    const footer = document.getElementById('main-footer');
 
-  if (header) header.style.display = 'none';
-  if (footer) footer.style.display = 'none';
-  
+    if (header) header.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+
     const loginForm = document.getElementById('login-form');
-  
+
     loginForm.addEventListener('submit', (event) => {
-      event.preventDefault(); 
-      
+      event.preventDefault();
+
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-  
+
       if (email && password) {
-        
-        window.location.hash = '/home'; 
+
+        window.location.hash = '/home';
       } else {
         alert('Email dan kata sandi harus diisi!');
       }
     });
-  
+
     const registerLink = document.querySelector('.register a');
     registerLink.addEventListener('click', (event) => {
-      event.preventDefault(); 
-      window.location.hash = '/signup'; 
+      event.preventDefault();
+      window.location.hash = '/signup';
     });
-  },  
+  },
 };
 
 export default LoginPage;

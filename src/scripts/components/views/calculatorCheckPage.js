@@ -1,6 +1,6 @@
 const CalculatorCheckPage = {
   async render() {
-    const category = sessionStorage.getItem("selectedCategory") || "Umum";
+    const category = sessionStorage.getItem('selectedCategory') || 'Umum';
     return `
       <section id="nutrition-form">
         <h2>Check Status Gizi (${category})</h2>
@@ -42,15 +42,15 @@ const CalculatorCheckPage = {
   },
 
   async afterRender() {
-    document.getElementById("checkForm").addEventListener("submit", (e) => {
+    document.getElementById('checkForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById("name").value;
-      const weight = parseFloat(document.getElementById("weight").value);
-      const height = parseFloat(document.getElementById("height").value) / 100;
+      const name = document.getElementById('name').value;
+      const weight = parseFloat(document.getElementById('weight').value);
+      const height = parseFloat(document.getElementById('height').value) / 100;
       const bmi = (weight / (height * height)).toFixed(2);
 
-      sessionStorage.setItem("bmiResult", JSON.stringify({ name, bmi }));
-      window.location.hash = "#/results-check";
+      sessionStorage.setItem('bmiResult', JSON.stringify({ name, bmi }));
+      window.location.hash = '#/results-check';
     });
   },
 };

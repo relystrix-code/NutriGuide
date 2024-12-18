@@ -1,6 +1,6 @@
-import DrawerInitiator from "../utils/drawerInitiator";
-import UrlParser from "../routes/urlParser";
-import routes from "../routes/routes";
+import DrawerInitiator from '../utils/drawerInitiator';
+import UrlParser from '../routes/urlParser';
+import routes from '../routes/routes';
 
 class App {
   constructor({ button, drawer, content }) {
@@ -31,24 +31,24 @@ class App {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const profileBtn = document.getElementById("profile-btn");
-  const profileContainer = document.querySelector(".app-bar__profile");
-  const logoutLink = document.querySelector("#profile-dropdown a");
+document.addEventListener('DOMContentLoaded', () => {
+  const profileBtn = document.getElementById('profile-btn');
+  const profileContainer = document.querySelector('.app-bar__profile');
+  const logoutLink = document.querySelector('#profile-dropdown a');
 
-  profileBtn.addEventListener("click", (event) => {
+  profileBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    profileContainer.classList.toggle("active");
+    profileContainer.classList.toggle('active');
   });
 
-  document.addEventListener("click", (event) => {
+  document.addEventListener('click', (event) => {
     if (!profileContainer.contains(event.target)) {
-      profileContainer.classList.remove("active");
+      profileContainer.classList.remove('active');
     }
   });
 
-  logoutLink.addEventListener("click", () => {
-    profileContainer.classList.remove("active");
+  logoutLink.addEventListener('click', () => {
+    profileContainer.classList.remove('active');
   });
 
 });

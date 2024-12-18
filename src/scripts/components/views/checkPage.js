@@ -33,10 +33,10 @@ const CheckPage = {
   },
 
   async afterRender() {
-    document.querySelectorAll(".category-buttons button").forEach((button) => {
-      button.addEventListener("click", () => {
-        window.location.hash = "#/calculator-check";
-        sessionStorage.setItem("selectedCategory", button.dataset.category);
+    document.querySelectorAll('.category-buttons button').forEach((button) => {
+      button.addEventListener('click', () => {
+        window.location.hash = '#/calculator-check';
+        sessionStorage.setItem('selectedCategory', button.dataset.category);
       });
     });
   },
