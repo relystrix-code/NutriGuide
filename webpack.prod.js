@@ -1,9 +1,11 @@
-const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
+const { merge } = require("webpack-merge");
 
 module.exports = merge(common, {
   mode: "production",
+
   devtool: "source-map",
+
   module: {
     rules: [
       {
@@ -18,32 +20,6 @@ module.exports = merge(common, {
           },
         ],
       },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: false,
-            },
-          },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: false,
-            },
-          },
-        ],
-      },
     ],
-  },
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-    },
-    minimize: true,
   },
 });
