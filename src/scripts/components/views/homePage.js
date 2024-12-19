@@ -5,7 +5,7 @@ const HomePage = {
         <div class="hero-conten-home">
           <h1>Wujudkan Pola Hidup Sehat Mulai dari Sekarang dengan <span>NutriGuide</span></h1>
           <p><span>NutriGuide</span> hadir sebagai solusi modern untuk membantu Anda mengelola asupan nutrisi harian dengan mudah dan praktis. Bersama <span>NutriGuide</span>, wujudkan hidup sehat dan berkualitas mulai dari hari ini!</p>
-          <img src="./images/homePageHero.jpg" alt="Hero Image"> 
+          <img src="./images/heroes/home-page.webp" alt="Hero Image"> 
         </div>
       </section>
 
@@ -16,7 +16,7 @@ const HomePage = {
               <p>Yuk, <span>check gizi</span> kamu sekarang dan temukan informasi penting tentang kesehatan tubuhmu!</p>
               <button id="check-nutrition-btn" class="btn-check">Cek Gizi Sekarang!</button>
             </div>
-            <img src="./images/homeCheck.jpg" alt="Image Gizi">
+            <img src="./images/features/home-check.webp" alt="Image Gizi">
           </div>
         </div>
 

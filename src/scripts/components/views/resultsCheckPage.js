@@ -7,7 +7,7 @@ const ResultsCheckPage = {
 
     if (bmi < 18.5) {
       status = 'Underweight';
-      imageSrc = 'resultsCheckBMI1.png';
+      imageSrc = './images/heroes/results-page.webp';
       articles = [
         { title: 'Tips Meningkatkan Berat Badan', link: '#/article/1', date: '1/12/2024' },
         { title: 'Nutrisi Penting untuk Tubuh Kurus', link: '#/article/2', date: '2/12/2024' },
@@ -31,7 +31,7 @@ const ResultsCheckPage = {
       ];
     } else {
       status = 'Obese';
-      imageSrc = 'resultsCheckBMI4.png';
+      imageSrc = './images/heroes/results-page.webp';
       articles = [
         { title: 'Langkah-langkah Awal untuk Melawan Obesitas', link: '#/article/11', date: '1/12/2024' },
         { title: 'Pentingnya Konsultasi dengan Ahli Gizi', link: '#/article/12', date: '2/12/2024' },

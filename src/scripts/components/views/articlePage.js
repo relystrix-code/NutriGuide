@@ -5,7 +5,7 @@ const ArticlePage = {
         <div class="hero-content-article">
           <h1>NutriGuide</h1>
           <p>Temukan artikel pilihan dan jadikan hari Anda lebih bermakna!</p>
-          <img src="./images/articlePageHero.jpg" alt="Hero Image"> 
+          <img src="./images/heroes/article-page.webp" alt="Hero Image"> 
         </div>
       </section>
       <section class="artikel-section">

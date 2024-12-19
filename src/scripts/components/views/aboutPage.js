@@ -5,7 +5,7 @@ const AboutPage = {
           <div class="hero-content-about">
             <h1>NutriGuide</h1>
             <p>Your guide to a healthy living and balanced nutrition</p>
-            <img src="./images/discusshero.png" alt="Hero Image">
+            <img src="./images/heroes/about-page.webp" alt="Hero Image">
           </div>
         </section>
   
@@ -22,7 +22,7 @@ const AboutPage = {
             <h3>Our Team</h3>
             <div class="team-members">
               <div class="team-member">
-                <img src="./images/consultationProfile1.png" alt="Vian Haryadi">
+                <img src="" alt="Vian Haryadi">
                 <h4>Vian Haryadi</h4>
                 <p>Project Manager <br>Back-end Developer</p>
                 <div class="social-links">
@@ -32,7 +32,7 @@ const AboutPage = {
                 </div>
               </div>
               <div class="team-member">
-                <img src="./images/consultationProfile1.png" alt="Salman Alfarisi">
+                <img src="" alt="Salman Alfarisi">
                 <h4>Salman Alfarisi</h4>
                 <p>Front-end Developer <br>Back-end Developer</p>
                 <div class="social-links">
@@ -42,7 +42,7 @@ const AboutPage = {
                 </div>
               </div>
               <div class="team-member">
-                <img src="./images/consultationProfile1.png" alt="Anindya Salsabila">
+                <img src="" alt="Anindya Salsabila">
                 <h4>Anindya Salsabila</h4>
                 <p>UI/UX Designer <br>Front-end Developer</p>
                 <div class="social-links">
@@ -52,7 +52,7 @@ const AboutPage = {
                 </div>
               </div>
               <div class="team-member">
-                <img src="./images/consultationProfile1.png" alt="Paramesti Astagina">
+                <img src="" alt="Paramesti Astagina">
                 <h4>Paramesti Astagina</h4>
                 <p>UI/UX Designer <br>Front-end Developer</p>
                 <div class="social-links">

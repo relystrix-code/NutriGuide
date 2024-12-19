@@ -11,21 +11,21 @@ const ConsultationPage = {
           <div class="consultants">
             <a href="https://www.whatsapp.com/" target="_blank" class="consultant-card">
               <div>
-                <img src="./images/consultationProfile2.png" alt="Chika, S.Gz, M.P.H">
+                <img src="./images/consultations/profile-2.webp" alt="Chika, S.Gz, M.P.H">
                 <h3>Chika, S.Gz, M.P.H</h3>
                 <p>Jam Konsultasi: Senin - Jumat, 09.00 - 17.00 WIB</p>
               </div>
             </a>
             <a href="https://www.whatsapp.com/" target="_blank" class="consultant-card">
               <div>
-                <img src="./images/consultationProfile1.png" alt="Zayyan, S.Gz, M.Gz">
+                <img src="./images/consultations/profile-1.webp" alt="Zayyan, S.Gz, M.Gz">
                 <h3>Zayyan, S.Gz, M.Gz</h3>
                 <p>Jam Konsultasi: Senin - Jumat, 09.00 - 17.00 WIB</p>
               </div>
             </a>
             <a href="https://www.whatsapp.com/" target="_blank" class="consultant-card">
               <div>
-                <img src="./images/consultationProfile3.png" alt="Bella, S.Gz, M.Gz">
+                <img src="./images/consultations/profile-3.webp" alt="Bella, S.Gz, M.Gz">
                 <h3>Bella, S.Gz, M.Gz</h3>
                 <p>Jam Konsultasi: Senin - Jumat, 09.00 - 17.00 WIB</p>
               </div>

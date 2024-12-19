@@ -5,7 +5,7 @@ const SignupPage = {
         <section class="container-signup">
           <div class="left-section">
             <h1>Selamat Datang<br>di <span>NutriGuide!</span></h1>
-            <img src="./images/signupLogin.png" alt="Signup Image">
+            <img src="./images/heroes/signup-login.webp" alt="Signup Image">
           </div>
           <div class="right-section">
             <h2>Daftar</h2>
