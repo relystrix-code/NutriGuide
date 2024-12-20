@@ -23,29 +23,26 @@ body {
   flex-direction: column;
 }
 
-/* AppBar */
-
 .app-bar {
   padding: 8px 16px;
   background-color: white;
   display: flex;
   align-items: center;
-  grid-template-columns: auto 1fr auto;
   justify-content: space-between;
   gap: 10px;
   position: sticky;
   top: 0;
   z-index: 99;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.app-bar .app-bar__menu {
+.app-bar__menu {
   display: flex;
   align-items: center;
   flex: 1;
 }
 
-.app-bar .app-bar__menu button {
+.app-bar__menu button {
   background-color: transparent;
   border: none;
   font-size: 18px;
@@ -55,19 +52,19 @@ body {
   width: 44px;
 }
 
-.app-bar .app-bar__logo {
+.app-bar__logo {
   flex: none;
   text-align: left;
   margin-right: auto;
 }
 
-.app-bar .app-bar__logo img {
+.app-bar__logo img {
   width: 80px;
   max-width: 150px;
   display: block;
 }
 
-.app-bar .app-bar__navigation {
+.app-bar__navigation {
   position: absolute;
   top: 50px;
   left: -180px;
@@ -82,11 +79,17 @@ body {
   gap: 20px;
 }
 
-.app-bar .app-bar__navigation.open {
+.app-bar__navigation.open {
   left: 0;
 }
 
-.app-bar .app-bar__navigation ul li a {
+.app-bar__navigation ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-bar__navigation ul li a {
   display: inline-block;
   text-decoration: none;
   color: black;
@@ -95,14 +98,8 @@ body {
   width: 100%;
 }
 
-.app-bar .app-bar__navigation ul li a:hover {
+.app-bar__navigation ul li a:hover {
   color: #3d7069;
-}
-
-.app-bar .app-bar__navigation ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
 }
 
 .app-bar__navigation ul li a.active {
@@ -116,10 +113,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 0;
-  margin: 0;
-  flex: none;
-  text-align: right;
   position: relative;
 }
 
@@ -128,8 +121,6 @@ body {
   text-decoration: none;
   display: flex;
   align-items: center;
-  padding: 0;
-  margin: 0;
 }
 
 .dropdown {
@@ -151,8 +142,8 @@ body {
   text-decoration: none;
   color: black;
   padding: 8px 12px;
-  transition: background-color 0.3s ease;
   font-size: 15px;
+  transition: background-color 0.3s ease;
 }
 
 .dropdown a i {
@@ -168,8 +159,6 @@ body {
   display: block;
 }
 
-/*  Main Content  */
-
 main {
   padding: 32px;
   flex: 1;
@@ -184,7 +173,6 @@ main {
   font-weight: normal;
 }
 
-/* Footer */
 #main-footer {
   background-color: #3d7069;
   color: white;
@@ -194,7 +182,6 @@ main {
 .footer-container {
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
   padding: 0 20px;
   flex-wrap: wrap;
 }
@@ -273,12 +260,10 @@ main {
 .footer-section-social .social-links ul {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .footer-section-social .social-links ul li a {
   font-size: 18px;
-  display: inline-block;
 }
 
 .footer-section-social .social-links ul li a i {
