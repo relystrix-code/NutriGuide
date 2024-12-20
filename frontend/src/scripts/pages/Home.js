@@ -4,7 +4,7 @@ const Home = {
   async render() {
     return `
       <section class="hero-home">
-        <div class="hero-conten-home">
+        <div class="hero-content-home">
           <h1>
             Wujudkan Pola Hidup Sehat Mulai dari Sekarang dengan <span>NutriGuide</span>
           </h1>
@@ -38,8 +38,6 @@ const Home = {
   },
 
   async afterRender() {
-    console.log('Home Page rendered');
-
     const header = document.getElementById('main-header');
     const footer = document.getElementById('main-footer');
     if (header) header.style.display = '';
@@ -54,8 +52,6 @@ const Home = {
 
     try {
       const response = await Endpoints.AllArticles();
-      console.log('Response from API:', response);
-
       const articles = response.data.articles.slice(0, 5);
       const artikelGrid = document.getElementById('artikel-grid');
 
@@ -65,8 +61,8 @@ const Home = {
       }
 
       artikelGrid.innerHTML = articles
-        .map((article) => {
-          return `
+        .map(
+          (article) => `
           <a href="#/articles/${article.id}">
             <div class="artikel-card">
               <img src="${article.picture}" alt="${article.title}">
@@ -76,8 +72,8 @@ const Home = {
 ).toLocaleDateString('id-ID')}</p>
             </div>
           </a>
-        `;
-        })
+        `
+        )
         .join('');
     } catch (error) {
       console.error('Gagal memuat artikel:', error);
