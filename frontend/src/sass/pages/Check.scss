@@ -1,0 +1,185 @@
+#check-gizi {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 40px;
+  max-width: 800px;
+  margin: 40px auto;
+  display: contents;
+  flex-direction: column;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #1d5c42;
+  }
+
+  .nutriguide {
+    color: #55a562;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+
+  /* Media Queries */
+  @media screen and (max-width: 480px) {
+    margin: 100px auto;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    margin: 150px auto;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: 180px auto;
+
+    h1 {
+      font-size: 2.2rem;
+    }
+  }
+}
+
+#img {
+  text-align: center;
+  margin: 30px auto;
+
+  img {
+    max-width: 60%;
+    height: auto;
+  }
+
+  /* Media Queries */
+  @media screen and (max-width: 480px) {
+    img {
+      max-width: 80%;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    img {
+      max-width: 70%;
+    }
+  }
+}
+
+#select-category {
+  text-align: center;
+  padding: 30px;
+
+  h2 {
+    font-size: 2rem;
+    color: #000000;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .category-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Responsive for smaller screens */
+    gap: 50px;
+    margin-top: 50px;
+
+    .category-card {
+      width: 1036px;
+      height: 1280px;
+      background: none;
+      border: 5px solid;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+
+      &:hover {
+        border-color: #1d5c42;
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #55a562;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+        margin: 20px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05) rotate(2deg);
+          opacity: 0.95;
+        }
+      }
+
+      span {
+        display: block;
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #1d5c42;
+      }
+    }
+
+    /* Media Queries */
+    @media screen and (max-width: 480px) {
+      gap: 15px;
+
+      .category-card {
+        width: 80%;
+        height: auto;
+
+        img {
+          width: 80px;
+          height: 80px;
+        }
+
+        span {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1024px) {
+      gap: 20px;
+
+      .category-card {
+        img {
+          width: 90px;
+          height: 90px;
+        }
+
+        span {
+          font-size: 0.95rem;
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .category-card {
+        width: 300px;
+        height: 300px;
+
+        img {
+          width: 250px;
+          height: 250px;
+        }
+      }
+    }
+  }
+}
