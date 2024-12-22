@@ -31,22 +31,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
-.left-section h1 {
-  font-size: 2rem;
-  color: black;
-  text-align: center;
-}
+  h1 {
+    font-size: 2rem;
+    color: black;
+    text-align: center;
 
-.left-section span {
-  color: #3d7069;
-}
+    span {
+      color: #3d7069;
+    }
+  }
 
-.left-section img {
-  margin-top: 20px;
-  max-width: 300px;
-  height: auto;
+  img {
+    margin-top: 20px;
+    max-width: 300px;
+    height: auto;
+  }
 }
 
 .right-section {
@@ -58,68 +58,69 @@
   justify-content: center;
   align-items: center;
   color: white;
-}
 
-.right-section h2 {
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-}
+  h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
 
-form {
-  width: 100%;
-  max-width: 400px;
-}
+  form {
+    width: 100%;
+    max-width: 400px;
 
-.input-group {
-  margin-bottom: 20px;
-}
+    .input-group {
+      margin-bottom: 20px;
 
-.input-group input {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #ffffff;
-  border-radius: 8px;
-  background-color: #3d7069;
-  color: white;
-  font-size: 1rem;
-}
+      input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ffffff;
+        border-radius: 8px;
+        background-color: #3d7069;
+        color: white;
+        font-size: 1rem;
+        box-sizing: border-box;
 
-.input-group input::placeholder {
-  color: #d5e9dc;
-}
+        &::placeholder {
+          color: #d5e9dc;
+        }
+      }
+    }
 
-.button-login {
-  width: 100%;
-  padding: 12px;
-  background-color: white;
-  color: #3d7069;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  box-sizing: border-box;
-}
+    .button-login {
+      width: 100%;
+      padding: 12px;
+      background-color: white;
+      color: #3d7069;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      box-sizing: border-box;
 
-.button-login:hover {
-  background-color: #d5e9dc;
-}
+      &:hover {
+        background-color: #d5e9dc;
+      }
+    }
+  }
 
-.register {
-  margin-top: 20px;
-  color: white;
-  text-align: center;
-}
+  .register {
+    margin-top: 20px;
+    color: white;
+    text-align: center;
 
-.register a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
 
-.register a:hover {
-  text-decoration: underline;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -127,30 +128,34 @@ form {
     flex-direction: column;
     width: 90%;
     height: auto;
-  }
-
-  .left-section,
-  .right-section {
-    flex: none;
-    width: 100%;
     padding: 20px;
-  }
 
-  .left-section img {
-    max-width: 200px;
-  }
+    .left-section,
+    .right-section {
+      flex: none;
+      width: 100%;
+      padding: 20px;
 
-  form {
-    max-width: 100%;
-  }
+      img {
+        max-width: 200px;
+      }
+    }
 
-  .right-section h2 {
-    font-size: 1.5rem;
-  }
+    .right-section {
+      h2 {
+        font-size: 1.5rem;
+      }
 
-  .input-group input,
-  .button-login {
-    font-size: 0.9rem;
+      form {
+        max-width: 100%;
+
+        .input-group input,
+        .button-login {
+          font-size: 0.9rem;
+          padding: 10px;
+        }
+      }
+    }
   }
 }
 
@@ -158,31 +163,37 @@ form {
   .container-login {
     padding: 10px;
     box-shadow: none;
-  }
 
-  .left-section h1 {
-    font-size: 1.5rem;
-  }
+    .left-section {
+      h1 {
+        font-size: 1.5rem;
+      }
 
-  .left-section img {
-    max-width: 150px;
-  }
+      img {
+        max-width: 150px;
+      }
+    }
 
-  .right-section h2 {
-    font-size: 1.2rem;
-  }
+    .right-section {
+      h2 {
+        font-size: 1.2rem;
+      }
 
-  .input-group input,
-  .button-login {
-    padding: 10px;
-    font-size: 0.8rem;
-  }
+      form {
+        .input-group input,
+        .button-login {
+          padding: 10px;
+          font-size: 0.9rem;
+        }
+      }
 
-  .register {
-    font-size: 0.9rem;
-  }
+      .register {
+        font-size: 0.9rem;
 
-  .register a {
-    font-size: 0.9rem;
+        a {
+          font-size: 0.9rem;
+        }
+      }
+    }
   }
 }
