@@ -17,20 +17,21 @@ const ArticleDetails = {
   async afterRender() {
     const url = window.location.hash.split('/')[2];
     const articleContent = document.getElementById('article-content');
-
     const backButton = document.getElementById('back-button');
+
     backButton.addEventListener('click', () => {
       window.location.hash = '/articles';
     });
 
     try {
       const response = await Endpoints.ArticleById(url);
-      const { article } = response.data;
 
-      if (!article) {
+      if (!response.data || !response.data.article) {
         articleContent.innerHTML = '<p>Artikel tidak ditemukan.</p>';
         return;
       }
+
+      const { article } = response.data;
 
       articleContent.innerHTML = `
         <h1 class="article-title">${article.title}</h1>
@@ -41,7 +42,7 @@ const ArticleDetails = {
   article.date
 ).toLocaleDateString('id-ID')}</p>
         <p class="article-header">${article.headerText}</p>
-        
+
         <h2 class="article-section-title">${article.sectionSubtitle1}</h2>
         <p class="article-section-text">${article.sectionText1}</p>
 
