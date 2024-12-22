@@ -4,7 +4,7 @@
   padding: 40px;
   max-width: 800px;
   margin: 40px auto;
-  display: flex;
+  display: contents;
   flex-direction: column;
 
   h1 {
@@ -88,6 +88,7 @@
   font-size: 2rem;
   color: #000000;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .category-buttons {
@@ -184,9 +185,9 @@
   }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 480) {
   .category-buttons .category-card {
-    width: 150px;
+    width: 150;
     height: 200px;
   }
 

@@ -25,44 +25,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-section-nutri,
-  .footer-section-support,
-  .footer-section-social {
-    flex: unset;
-    margin-bottom: 20px;
-  }
-
-  .footer-section-nutri p {
-    text-align: center;
-  }
-
-  .footer-section-nutri h3 {
-    text-align: center;
-  }
-
-  .footer-section-social .social-links ul {
-    flex-direction: row;
-  }
-
-  .footer-section-social ul li a {
-    margin: 0 5px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .app-bar {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-  }
-}
-
 @media screen and (max-width: 1024px) {
   .app-bar {
     display: grid;
@@ -90,6 +52,10 @@
     overflow: hidden;
   }
 
+  .app-bar .app-bar__navigation.open {
+    left: 0;
+  }
+
   .app-bar .app-bar__navigation ul {
     display: block;
   }
@@ -103,8 +69,67 @@
     padding: 10px;
     display: block;
   }
+}
 
-  .app-bar .app-bar__navigation.open {
-    left: 0;
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section-nutri,
+  .footer-section-support,
+  .footer-section-social {
+    flex: unset;
+    margin-bottom: 20px;
+  }
+
+  .footer-section-nutri p,
+  .footer-section-nutri h3 {
+    text-align: center;
+  }
+
+  .footer-section-social .social-links ul {
+    flex-direction: row;
+  }
+
+  .footer-section-social ul li a {
+    margin: 0 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .app-bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .app-bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section-nutri,
+  .footer-section-support,
+  .footer-section-social {
+    flex: unset;
+    margin-bottom: 20px;
+  }
+
+  .footer-section-social .social-links ul {
+    flex-direction: row;
+  }
+
+  .footer-section-social ul li a {
+    margin: 0 5px;
   }
 }
