@@ -70,6 +70,7 @@ module.exports = {
       swDest: './sw.bundle.js',
       skipWaiting: true,
       clientsClaim: true,
+      maximumFileSizeToCacheInBytes: 500000,
       runtimeCaching: [
         {
           urlPattern: new RegExp('^http://localhost:9000'),
