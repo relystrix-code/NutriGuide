@@ -9,11 +9,11 @@
 
   h1 {
     font-size: 2.5rem;
-    color: #1d5c42;
+    color: #000000;
   }
 
   .nutriguide {
-    color: #55a562;
+    color: #3D7069;
   }
 
   p {
@@ -53,133 +53,171 @@
 
 #img {
   text-align: center;
-  margin: 30px auto;
+  margin: 20px auto;
+}
 
-  img {
-    max-width: 60%;
-    height: auto;
+#img img {
+  max-width: 80%; /* Default ukuran gambar */
+  height: auto;   /* Memastikan rasio gambar tetap */
+}
+
+/* Media Queries untuk layar kecil */
+@media screen and (max-width: 480px) {
+  #img img {
+    max-width: 100%; /* Gambar memenuhi seluruh lebar layar */
+    margin: 0 auto;  /* Gambar tetap di tengah */
   }
+}
 
-  /* Media Queries */
-  @media screen and (max-width: 480px) {
-    img {
-      max-width: 80%;
-    }
+/* Media Queries untuk tablet (lebih besar dari 480px, hingga 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  #img img {
+    max-width: 90%; /* Sedikit lebih besar untuk perangkat tablet */
   }
+}
 
-  @media screen and (max-width: 1024px) {
-    img {
-      max-width: 70%;
-    }
+/* Media Queries untuk layar lebih besar (hingga 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  #img img {
+    max-width: 80%; /* Lebar default pada layar besar */
   }
 }
 
 #select-category {
   text-align: center;
-  padding: 30px;
+  padding: 20px;
+}
 
-  h2 {
-    font-size: 2rem;
-    color: #000000;
-    margin-bottom: 20px;
-    text-align: center;
+#select-category h2 {
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px; /* Reduce gap size */
+  margin-top: 30px;
+}
+
+.category-buttons .category-card {
+  width: 250px; /* Smaller size for default screens */
+  height: 300px;
+  background: none;
+  border: 2px solid #ccc; /* Thinner border */
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 15px; /* Smaller corner radius */
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  margin: 0;
+}
+
+.category-buttons .category-card:hover {
+  border-color: #3D7069;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.category-buttons .category-card:focus {
+  outline: none;
+  border-color: #3D7069;
+}
+
+.category-buttons .category-card img {
+  width: 150px; /* Smaller image */
+  height: 150px;
+  margin: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.category-buttons .category-card img:hover {
+  transform: scale(1.1) rotate(2deg);
+  opacity: 0.95;
+}
+
+.category-buttons .category-card span {
+  display: block;
+  margin-top: 10px;
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold;
+  color: #3D7069;
+}
+
+/* Media Queries */
+@media screen and (min-width: 768px) {
+  .category-buttons {
+    flex-wrap: nowrap; /* Ensure items are in one row */
+    justify-content: center;
   }
 
+  .category-buttons .category-card {
+    width: 250px; /* Adjust for desktops */
+    height: 300px;
+  }
+
+  .category-buttons .category-card img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .category-buttons .category-card span {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .category-buttons {
-    display: flex;
+    flex-wrap: nowrap; /* Ensure items are in one row */
     justify-content: center;
-    flex-wrap: wrap;
-    /* Responsive for smaller screens */
-    gap: 50px;
-    margin-top: 50px;
+  }
 
-    .category-card {
-      width: 1036px;
-      height: 1280px;
-      background: none;
-      border: 5px solid;
-      cursor: pointer;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 20px;
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  .category-buttons .category-card {
+    width: 250px; /* Adjust for desktops */
+    height: 300px;
+  }
 
-      &:hover {
-        border-color: #1d5c42;
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      }
+  .category-buttons .category-card img {
+    width: 200px;
+    height: 200px;
+  }
 
-      &:focus {
-        outline: none;
-        border-color: #55a562;
-      }
+  .category-buttons .category-card span {
+    font-size: 18px;
+  }
+}
 
-      img {
-        width: 300px;
-        height: 300px;
-        margin: 20px;
-        transition: transform 0.3s ease, opacity 0.3s ease;
+@media screen and (min-width: 480){
+  .category-buttons .category-card {
+    width: 150; /* Adjust for tablets */
+    height: 200px;
+  }
 
-        &:hover {
-          transform: scale(1.05) rotate(2deg);
-          opacity: 0.95;
-        }
-      }
+  .category-buttons .category-card img {
+    width: 100px;
+    height: 100px;
+  }
 
-      span {
-        display: block;
-        margin-top: 10px;
-        font-size: 20px;
-        font-weight: bold;
-        color: #1d5c42;
-      }
-    }
+  .category-buttons .category-card span {
+    font-size: 18px;
+  }
+}
 
-    /* Media Queries */
-    @media screen and (max-width: 480px) {
-      gap: 15px;
+@media screen and (min-width: 1440px) {
+  .category-buttons .category-card {
+    width: 400px; /* For larger screens */
+    height: 450px;
+  }
 
-      .category-card {
-        width: 80%;
-        height: auto;
+  .category-buttons .category-card img {
+    width: 300px;
+    height: 300px;
+  }
 
-        img {
-          width: 80px;
-          height: 80px;
-        }
-
-        span {
-          font-size: 0.9rem;
-        }
-      }
-    }
-
-    @media screen and (max-width: 1024px) {
-      gap: 20px;
-
-      .category-card {
-        img {
-          width: 90px;
-          height: 90px;
-        }
-
-        span {
-          font-size: 0.95rem;
-        }
-      }
-    }
-
-    @media screen and (min-width: 768px) {
-      .category-card {
-        width: 300px;
-        height: 300px;
-
-        img {
-          width: 250px;
-          height: 250px;
-        }
-      }
-    }
+  .category-buttons .category-card span {
+    font-size: 20px;
   }
 }
