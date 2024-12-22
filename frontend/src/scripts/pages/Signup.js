@@ -11,16 +11,16 @@ const Signup = {
             <h2>Daftar</h2>
             <form id="signup-form">
               <div class="input-group">
-                <input type="text" placeholder="Username" required>
+                <input type="text" id="username" placeholder="Username" required>
               </div>
               <div class="input-group">
-                <input type="email" placeholder="Email" required>
+                <input type="email" id="email" placeholder="Email" required>
               </div>
               <div class="input-group">
-                <input type="password" placeholder="Kata Sandi" required>
+                <input type="password" id="password" placeholder="Kata Sandi" required>
               </div>
               <div class="input-group">
-                <input type="password" placeholder="Konfirmasi Kata Sandi" required>
+                <input type="password" id="confirm-password" placeholder="Konfirmasi Kata Sandi" required>
               </div>
               <div class="input-group">
                 <button class="button-signup" type="submit">Daftar</button>
@@ -46,7 +46,21 @@ const Signup = {
     signupForm.addEventListener('submit', (event) => {
       event.preventDefault();
 
-      window.location.hash = '/home';
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      if (password !== confirmPassword) {
+        alert('Kata sandi dan konfirmasi kata sandi tidak cocok!');
+        return;
+      }
+
+      if (username && email && password && confirmPassword) {
+        window.location.hash = '/home';
+      } else {
+        alert('Semua kolom harus diisi!');
+      }
     });
 
     const goToLogin = document.getElementById('go-to-login');

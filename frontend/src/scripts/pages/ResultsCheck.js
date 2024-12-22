@@ -42,16 +42,16 @@ const ResultsCheck = {
 
   getDescription(status) {
     switch (status) {
-      case 'Underweight':
-        return 'Berat badan kamu kurang. Pastikan untuk mengonsumsi makanan bergizi dan berkonsultasi dengan ahli gizi.';
-      case 'Normal':
-        return 'Hasil status gizi kamu Normal. Ini artinya kondisi tubuhmu sudah sangat baik! Namun, jangan lengah tetap jaga pola makan seimbang dan perhatikan asupan gizimu agar kesehatan tubuh tetap optimal.';
-      case 'Overweight':
-        return 'Berat badan kamu berlebih. Kurangi konsumsi makanan tinggi lemak dan tingkatkan aktivitas fisik.';
-      case 'Obese':
-        return 'Berat badan kamu masuk kategori obesitas. Konsultasikan dengan ahli gizi untuk rencana penurunan berat badan.';
-      default:
-        return '';
+    case 'Underweight':
+      return 'Berat badan kamu kurang. Pastikan untuk mengonsumsi makanan bergizi dan berkonsultasi dengan ahli gizi.';
+    case 'Normal':
+      return 'Hasil status gizi kamu Normal. Ini artinya kondisi tubuhmu sudah sangat baik! Namun, jangan lengah tetap jaga pola makan seimbang dan perhatikan asupan gizimu agar kesehatan tubuh tetap optimal.';
+    case 'Overweight':
+      return 'Berat badan kamu berlebih. Kurangi konsumsi makanan tinggi lemak dan tingkatkan aktivitas fisik.';
+    case 'Obese':
+      return 'Berat badan kamu masuk kategori obesitas. Konsultasikan dengan ahli gizi untuk rencana penurunan berat badan.';
+    default:
+      return '';
     }
   },
 

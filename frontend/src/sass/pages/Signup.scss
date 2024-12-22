@@ -82,10 +82,16 @@ form {
   background-color: #3d7069;
   color: white;
   font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
 .input-group input::placeholder {
   color: #d6d2d2;
+}
+
+.input-group input:focus {
+  border-color: #d5e9dc;
+  outline: none;
 }
 
 .button-signup {
@@ -98,12 +104,13 @@ form {
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s ease;
   box-sizing: border-box;
 }
 
 .button-signup:hover {
   background-color: #d5e9dc;
+  transform: translateY(-5px);
 }
 
 .login {

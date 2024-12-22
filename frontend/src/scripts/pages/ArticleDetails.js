@@ -4,6 +4,9 @@ const ArticleDetails = {
   async render() {
     return `
       <section class="article-detail">
+        <button id="back-button" class="back-button">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
         <div id="article-content" class="article-content">
           <p>Memuat artikel...</p>
         </div>
@@ -12,8 +15,13 @@ const ArticleDetails = {
   },
 
   async afterRender() {
-    const url = window.location.hash.split('/')[2]; // Mengambil ID artikel dari URL
+    const url = window.location.hash.split('/')[2];
     const articleContent = document.getElementById('article-content');
+
+    const backButton = document.getElementById('back-button');
+    backButton.addEventListener('click', () => {
+      window.location.hash = '/articles';
+    });
 
     try {
       const response = await Endpoints.ArticleById(url);
@@ -26,8 +34,12 @@ const ArticleDetails = {
 
       articleContent.innerHTML = `
         <h1 class="article-title">${article.title}</h1>
-        <p class="article-meta">${article.category} | ${new Date(article.date).toLocaleDateString('id-ID')}</p>
-        <img class="article-image" src="${article.picture}" alt="${article.title}">
+        <img class="article-image" src="${article.picture}" alt="${
+  article.title
+}">
+        <p class="article-meta">${article.category} | ${new Date(
+  article.date
+).toLocaleDateString('id-ID')}</p>
         <p class="article-header">${article.headerText}</p>
         
         <h2 class="article-section-title">${article.sectionSubtitle1}</h2>
@@ -43,7 +55,8 @@ const ArticleDetails = {
       `;
     } catch (error) {
       console.error('Gagal memuat detail artikel:', error);
-      articleContent.innerHTML = '<p>Gagal memuat artikel. Silakan coba lagi nanti.</p>';
+      articleContent.innerHTML =
+        '<p>Gagal memuat artikel. Silakan coba lagi nanti.</p>';
     }
   },
 };
