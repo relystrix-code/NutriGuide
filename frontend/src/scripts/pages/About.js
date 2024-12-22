@@ -22,43 +22,43 @@ const About = {
               <h3>Our Team</h3>
               <div class="team-members">
                 <div class="team-member">
-                  <img src="" alt="Vian Haryadi">
+                  <img src="./images/team/vian-haryadi.webp" alt="Vian Haryadi">
                   <h4>Vian Haryadi</h4>
                   <p>Project Manager <br>Back-end Developer</p>
                   <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/vianharyadi/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/vian.hryd/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/relystrix-code" target="_blank"><i class="fab fa-github"></i></a>
                   </div>
                 </div>
                 <div class="team-member">
-                  <img src="" alt="Salman Alfarisi">
+                  <img src="./images/team/salman-alfarisi.webp" alt="Salman Alfarisi">
                   <h4>Salman Alfarisi</h4>
                   <p>Front-end Developer <br>Back-end Developer</p>
                   <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/salman-alfarisi-886630251/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/alfariss_24/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/salmanlfarisi" target="_blank"><i class="fab fa-github"></i></a>
                   </div>
                 </div>
                 <div class="team-member">
-                  <img src="" alt="Anindya Salsabila">
+                  <img src="./images/team/anindya-salsabila.webp" alt="Anindya Salsabila">
                   <h4>Anindya Salsabila</h4>
                   <p>UI/UX Designer <br>Front-end Developer</p>
                   <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/anindya-salsabila-putri-16b887291/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/anindysalsabila/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/anindyasalsa" target="_blank"><i class="fab fa-github"></i></a>
                   </div>
                 </div>
                 <div class="team-member">
-                  <img src="" alt="Paramesti Astagina">
+                  <img src="./images/team/paresmesti-astagina.webp" alt="Paramesti Astagina">
                   <h4>Paramesti Astagina</h4>
                   <p>UI/UX Designer <br>Front-end Developer</p>
                   <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/paramesti-astagina-a65b18291/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/astgnaaa_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/ParamestiAstagina" target="_blank"><i class="fab fa-github"></i></a>
                   </div>
                 </div>
               </div>
