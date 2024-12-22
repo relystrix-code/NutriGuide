@@ -1,57 +1,49 @@
 import Endpoints from '../api/endpoints';
-import CONFIG from '../api/configuration';
 
 const ArticleDetails = {
   async render() {
     return `
-      <section id="article-details">
-        <div id="loading">Loading article...</div>
+      <section class="article-detail">
+        <div id="article-content" class="article-content">
+          <p>Memuat artikel...</p>
+        </div>
       </section>
     `;
   },
 
   async afterRender() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const articleId = urlParams.get('id');
-
-    if (!articleId) {
-      document.getElementById('article-details').innerHTML =
-        '<p>Article ID is missing in the URL.</p>';
-      return;
-    }
+    const url = window.location.hash.split('/')[2]; // Mengambil ID artikel dari URL
+    const articleContent = document.getElementById('article-content');
 
     try {
-      const result = await Endpoints.ArticleById(articleId);
+      const response = await Endpoints.ArticleById(url);
+      const { article } = response.data;
 
-      if (result && result.data && result.data.article) {
-        const article = result.data.article;
-        document.getElementById('article-details').innerHTML = `
-          <article>
-            <h1>${article.title}</h1>
-            <p><strong>Category:</strong> ${article.category}</p>
-            <p><strong>Date:</strong> ${article.date}</p>
-            <img src="${CONFIG.BASE_URL + article.picture}" alt="${
-  article.title
-}" />
-            <p>${article.headerText || ''}</p>
-            <h2>${article.sectionSubtitle1 || ''}</h2>
-            <p>${article.sectionText1 || ''}</p>
-            <h2>${article.sectionSubtitle2 || ''}</h2>
-            <p>${article.sectionText2 || ''}</p>
-            <h2>${article.sectionSubtitle3 || ''}</h2>
-            <p>${article.sectionText3 || ''}</p>
-            <footer>${article.footerText || ''}</footer>
-          </article>
-        `;
-      } else {
-        document.getElementById('article-details').innerHTML = `<p>${
-          result.message || 'Article not found.'
-        }</p>`;
+      if (!article) {
+        articleContent.innerHTML = '<p>Artikel tidak ditemukan.</p>';
+        return;
       }
+
+      articleContent.innerHTML = `
+        <h1 class="article-title">${article.title}</h1>
+        <p class="article-meta">${article.category} | ${new Date(article.date).toLocaleDateString('id-ID')}</p>
+        <img class="article-image" src="${article.picture}" alt="${article.title}">
+        <p class="article-header">${article.headerText}</p>
+        
+        <h2 class="article-section-title">${article.sectionSubtitle1}</h2>
+        <p class="article-section-text">${article.sectionText1}</p>
+
+        <h2 class="article-section-title">${article.sectionSubtitle2}</h2>
+        <p class="article-section-text">${article.sectionText2}</p>
+
+        <h2 class="article-section-title">${article.sectionSubtitle3}</h2>
+        <p class="article-section-text">${article.sectionText3}</p>
+
+        <p class="article-footer">${article.footerText}</p>
+      `;
     } catch (error) {
-      document.getElementById(
-        'article-details'
-      ).innerHTML = `<p>Error fetching article: ${error.message}</p>`;
+      console.error('Gagal memuat detail artikel:', error);
+      articleContent.innerHTML = '<p>Gagal memuat artikel. Silakan coba lagi nanti.</p>';
     }
   },
 };
