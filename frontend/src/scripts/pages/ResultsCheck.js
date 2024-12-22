@@ -8,16 +8,16 @@ const ResultsCheck = {
 
     if (bmi < 18.5) {
       status = 'Underweight';
-      imageSrc = 'resultsCheckBMI1.webp';
+      imageSrc = 'results-overweight.webp';
     } else if (bmi < 25) {
       status = 'Normal';
-      imageSrc = 'resultsCheckBMI2.webp';
+      imageSrc = 'results-normal.webp';
     } else if (bmi < 30) {
       status = 'Overweight';
-      imageSrc = 'resultsCheckBMI3.webp';
+      imageSrc = 'results-overweight.webp';
     } else {
       status = 'Obese';
-      imageSrc = 'resultsCheckBMI4.webp';
+      imageSrc = 'results-obese.webp';
     }
 
     return `
