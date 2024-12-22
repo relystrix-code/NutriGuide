@@ -43,9 +43,9 @@
 
   .app-bar .app-bar__navigation {
     position: absolute;
-    top: 50px;
-    left: -180px;
-    width: 200px;
+    top: 96px;
+    left: -100%;
+    width: 100%;
     transition: all 0.3s ease;
     background-color: white;
     z-index: 99;
@@ -99,20 +99,9 @@
 }
 
 @media screen and (max-width: 480px) {
-  .app-bar {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-  }
 }
 
 @media screen and (max-width: 430px) {
-  .app-bar {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-  }
-
   .footer-container {
     flex-direction: column;
     text-align: center;

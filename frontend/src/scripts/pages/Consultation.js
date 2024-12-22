@@ -1,7 +1,6 @@
 const Consultation = {
   async render() {
     return `
-      <main class="main-content">
         <section class="consultation">
           <h1>Tanya Ahli Nutrisi Sekarang!</h1>
           <p>
@@ -59,7 +58,6 @@ const Consultation = {
   )}
           </div>
         </section>
-      </main>
     `;
   },
 
