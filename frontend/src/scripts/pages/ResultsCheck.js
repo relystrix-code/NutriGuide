@@ -8,7 +8,7 @@ const ResultsCheck = {
 
     if (bmi < 18.5) {
       status = 'Underweight';
-      imageSrc = 'results-overweight.webp';
+      imageSrc = 'results-underweight.webp';
     } else if (bmi < 25) {
       status = 'Normal';
       imageSrc = 'results-normal.webp';
