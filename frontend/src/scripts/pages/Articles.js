@@ -1,3 +1,5 @@
+import Endpoints from "../api/endpoints";
+
 const Articles = {
   async render() {
     return `
@@ -17,13 +19,19 @@ const Articles = {
 
   async afterRender() {
     try {
-      const response = await fetch('./database/article.json');
-      const data = await response.json();
-      const articles = data.article;
+      const response = await Endpoints.AllArticles();
+      const articles = response.data.articles;
       const artikelGrid = document.getElementById('artikel-grid');
 
-      articles.forEach((article) => {
-        const artikelCard = `
+      if (!articles || articles.length === 0) {
+        artikelGrid.innerHTML = '<p>Tidak ada artikel tersedia.</p>';
+        return;
+      }
+
+      artikelGrid.innerHTML = articles
+        .map(
+          (article) => `
+          <a href="#/articles/${article.id}">
             <div class="artikel-card">
               <img src="${article.picture}" alt="${article.title}">
               <h3>${article.title}</h3>
@@ -31,11 +39,14 @@ const Articles = {
   article.date
 ).toLocaleDateString('id-ID')}</p>
             </div>
-          `;
-        artikelGrid.innerHTML += artikelCard;
-      });
+          </a>
+        `
+        )
+        .join('');
     } catch (error) {
       console.error('Gagal memuat artikel:', error);
+      const artikelGrid = document.getElementById('artikel-grid');
+      artikelGrid.innerHTML = '<p>Gagal memuat artikel.</p>';
     }
   },
 };
