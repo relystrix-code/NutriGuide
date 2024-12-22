@@ -1,4 +1,4 @@
-import Endpoints from "../api/endpoints";
+import Endpoints from '../api/endpoints';
 
 const Articles = {
   async render() {
