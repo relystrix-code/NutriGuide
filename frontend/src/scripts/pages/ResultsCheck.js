@@ -21,22 +21,22 @@ const ResultsCheck = {
     }
 
     return `
-        <section id="bmi-result">
-          <h2>Hasil Status Gizi untuk ${name}</h2>
-          <div class="result-container">
-            <p class="bmi-value">IMT: <span>${bmi}</span></p>
-            <p class="bmi-status">Status: <span>${status}</span></p>
-            <img src="../images/heroes/${imageSrc}" alt="${status}" class="bmi-image" />
-          </div>
-          <p class="bmi-description">
-            ${this.getDescription(status)}
-          </p>
-          <section class="artikel-section">
-            <h2>Artikel</h2>
-            <div class="artikel-grid" id="artikel-grid"></div>
-            <a href="#/articles" class="read-more-link">Selengkapnya ></a>
-          </section>
+      <section id="bmi-result">
+        <h2>Hasil Status Gizi untuk ${name}</h2>
+        <div class="result-container">
+          <p class="bmi-value">IMT: <span>${bmi}</span></p>
+          <p class="bmi-status">Status: <span>${status}</span></p>
+          <img src="../images/heroes/${imageSrc}" alt="${status}" class="bmi-image" />
+        </div>
+        <p class="bmi-description">
+          ${this.getDescription(status)}
+        </p>
+        <section class="artikel-section">
+          <h2>Artikel</h2>
+          <div class="artikel-grid" id="artikel-grid"></div>
+          <a href="#/articles" class="read-more-link">Selengkapnya ></a>
         </section>
+      </section>
     `;
   },
 
@@ -69,14 +69,16 @@ const ResultsCheck = {
       artikelGrid.innerHTML = articles
         .map(
           (article) => `
-          <a href="#/articles/${article.id}">
-            <div class="artikel-card">
-              <img src="${article.picture}" alt="${article.title}">
-              <h3>${article.title}</h3>
-              <p>${article.category} | ${new Date(article.date).toLocaleDateString('id-ID')}</p>
-            </div>
-          </a>
-        `
+            <a href="#/articles/${article.id}">
+              <div class="artikel-card">
+                <img src="${article.picture}" alt="${article.title}">
+                <h3>${article.title}</h3>
+                <p>${article.category} | ${new Date(
+  article.date
+).toLocaleDateString('id-ID')}</p>
+              </div>
+            </a>
+          `
         )
         .join('');
     } catch (error) {
