@@ -54,7 +54,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(__dirname, 'index.html'),
+      template: path.resolve(__dirname, 'frontend/src/template/index.html'),
     }),
 
     new CopyWebpackPlugin({
@@ -73,7 +73,7 @@ module.exports = {
       maximumFileSizeToCacheInBytes: 500000,
       runtimeCaching: [
         {
-          urlPattern: new RegExp('^http://localhost:9000'),
+          urlPattern: new RegExp('^https://nutriguide-api.vercel.app/api'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'nutriguide-api-cache',
