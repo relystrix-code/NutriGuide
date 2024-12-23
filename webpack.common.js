@@ -54,7 +54,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(__dirname, 'frontend/src/template/index.html'),
+      template: path.resolve(__dirname, 'index.html'),
     }),
 
     new CopyWebpackPlugin({
