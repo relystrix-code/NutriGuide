@@ -26,7 +26,7 @@ const ResultsCheck = {
         <div class="result-container">
           <p class="bmi-value">IMT: <span>${bmi}</span></p>
           <p class="bmi-status">Status: <span>${status}</span></p>
-          <img src="../images/heroes/${imageSrc}" alt="${status}" class="bmi-image" />
+          <img src="./images/heroes/${imageSrc}" alt="${status}" class="bmi-image" />
         </div>
         <p class="bmi-description">
           ${this.getDescription(status)}
