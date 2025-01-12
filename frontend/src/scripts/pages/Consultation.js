@@ -5,7 +5,7 @@ const Consultation = {
           <h1>Tanya Ahli Nutrisi Sekarang!</h1>
           <p>
             Punya pertanyaan tentang pola makan atau nutrisi? Hubungi ahli kami melalui WhatsApp
-            untuk mendapatkan jawaban cepat dan terpercaya.
+            untuk mendapatkan jawaban cepat.
           </p>
           <div class="consultants">
             ${this.renderConsultantCard(
